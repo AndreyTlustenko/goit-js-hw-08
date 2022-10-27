@@ -1,3 +1,5 @@
+import Player from '@vimeo/player';
+import throttle from 'lodash.throttle';
 
 player.on("loaded", function () {
     if (localStorage.getItem("videoplayer-current-time")) {
@@ -6,7 +8,7 @@ player.on("loaded", function () {
 });
 
 let Iframe = document.querySelector('iframe');
-    let Player = new Vimeo.Player(Iframe);
+    let player = new Vimeo.Player(Iframe);
 
 player.on('play', function() {
         console.log('played the video!');

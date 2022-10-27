@@ -1,4 +1,3 @@
-
 import throttle from 'lodash.throttle';
 
 const refs = {
@@ -6,10 +5,11 @@ const refs = {
  textarea: document.querySelector(".feedback-form textarea"),
  }
  
-const formData = {};
+let formData = {};
 STORAGE_KEY = ("feedback-form-state");
+savedForm();
 
-window.addEventListener('load', savedForm);
+// window.addEventListener('load', savedForm);
 refs.form.addEventListener("input", throttle(onFormInput, 500));
 refs.form.addEventListener("submit", onFormSubmit);
 
@@ -27,24 +27,39 @@ function onFormInput(event){
 };
 function savedForm(){
      const savedFormData = localStorage.getItem(STORAGE_KEY);
-     const parsedformData = JSON.parse(savedFormData);
+     const parsedFormData = JSON.parse(savedFormData);
      
-    //  if(savedUsermData){
-    //      console.log(savedUsermData);
-    //      refs.input.value = parseUsermData.email;
-    //      refs.textarea.value = parseUsermData.message;
+    //  if(savedFormData){
+    //      console.log(savedFormData);
+    //      refs.input.value = parsedFormData.email;
+    //      refs.textarea.value = parsedFormData.message;
     //  }
     
 //      const parseformData = JSON.parse(formData);
-     if (parsedformData) {
-    formData = parsedformData;
-   refs.input.value = formData.email || "";
-   refs.textarea.value = formData.message || "";
+     if (parsedFormData) {
+    formData = parsedFormData;
+    refs.input.value = formData.email || '';
+    refs.textarea.value = formData.message || '';
   }
+
 };
 
-
-
+let data={"email":"","message":""};
+form.addEventListener("input", Throttle((event) => {
+        if (event.target.nodeName==="INPUT") {
+            data.email = event.target.value;
+        } else if (event.target.nodeName==="TEXTAREA") {
+            data.message = event.target.value;
+        }
+        if (data) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+        }
+    }, 500));
+if (localStorage.getItem(STORAGE_KEY)) { 
+        data = JSON.parse(localStorage.getItem(STORAGE_KEY));
+    }
+    email.value = data.email;
+    message.value = data.message;
 
 
 // let data={"email":"","message":""};
