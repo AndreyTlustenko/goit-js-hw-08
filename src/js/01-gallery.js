@@ -1,7 +1,7 @@
-// Add imports above this line
+
 import { galleryItems } from './gallery-items.js';
-import SimpleLightbox from "simplelightbox";
-import "simplelightbox/dist/simple-lightbox.min.css";
+import SimpleLightbox from 'simple lightbox';
+import 'simplelightbox/dist/simple-lightbox.min.css';
 
 console.log(galleryItems);
 
@@ -20,6 +20,7 @@ function createGalleryPictures(galleryItems) {
 };
 console.log(galleryItems);
 
+const lightbox = new SimpleLightbox('.gallery a', {captionsData:"alt", captionDelay: 250});
 // galleryContainer.addEventListener(`click`, toClickGallery)
 
 // function toClickGallery(e){
@@ -28,7 +29,7 @@ console.log(galleryItems);
 //         return
 //     }
 // };
- const lightbox = new SimpleLightbox('.gallery a', {captionsData:"alt", captionDelay: 250});
+ 
 
 
 // const galleryContainer = document.querySelector('.gallery');

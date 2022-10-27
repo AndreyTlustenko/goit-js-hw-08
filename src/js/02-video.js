@@ -1,5 +1,6 @@
 
 import Player from "@vimeo/player";
+
     const iframe = document.querySelector("iframe");
     const player = new Player(iframe);
 
@@ -8,9 +9,6 @@ player.on("loaded", function () {
         player.setCurrentTime(localStorage.getItem("videoplayer-current-time"));
     }
 });
-import Player from '@vimeo/player';
-import throttle from 'lodash.throttle';
-
 
 let Iframe = document.querySelector('iframe');
     let Player = new Vimeo.Player(Iframe);
