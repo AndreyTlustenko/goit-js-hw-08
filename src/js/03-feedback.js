@@ -6,7 +6,7 @@ const refs = {
  }
  
 let formData = {};
-STORAGE_KEY = ("feedback-form-state");
+const STORAGE_KEY = "feedback-form-state";
 
 window.addEventListener('load', savedFormData);
 refs.form.addEventListener("input", throttle(onFormInput, 500));
